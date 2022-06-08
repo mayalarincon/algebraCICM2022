@@ -5,13 +5,20 @@
 %  The theory rings contains results on ring theory such as the
 %  three isomorphism theorems, binomial theorem, theorems
 %  on maximal, prime and principal ideals, a general version for
-%  rings of the Chinese Remainder Theorem (CRT). An interesting feature
-%  of this formalization of CRT for rings is that it does not require 
-%  commutativity being proved just for rings with identity.
+%  rings of the Chinese Remainder Theorem (CRT), factorization on 
+%  commutative rings, formalization of Unique Factorization Domains,
+%  a general version of Euclidean gcd algorithm for Euclidean Domais.
+%  An interesting feature of this formalization of CRT for rings is
+%  that it does not require commutativity being proved just for rings
+%  with identity.
 %  The theory rings also includes a numerical version of the CRT
 %  for the ring of integers, which is the restricted version of CRT
 %  mechanically formalized. CRT for integers is proved parameterizing
 %  the general version of CRT for rings.
+%  Also, the correctness of the Euclidean gcd algorithm for the rings
+%  of integers and Gaussian integers were established by parameterizing
+%  the theorem concerning the correctness of the Euclidean gcd
+%  algorithm for Euclidean Domains. 
 %
 %  Authors: André L. Galdino, Andréia Borges Avelar,
 %           Thaynara Arielly de Lima, André Camapum Carvalho de Freitas,
@@ -51,7 +58,7 @@ boolean_ring				This subtheory brings the formalization of properties
 					multiplicative inverse. 
 				
 
-cartesian_product_finite.pvs    	This subtheory contains the specification of a finite 
+cartesian_product_finite	    	This subtheory contains the specification of a finite 
                                 	cartesian product of arbitrary sets and some properties. 
 
 
@@ -65,7 +72,7 @@ center_def				This subtheory contains the specification of the center of a
 chinese_remainder_theorem_rings 	This subtheory contains the formalization of the general version  
                                 	of the Chinese Remainder Theorem for rings. 
 
-chinese_remainder_theorem_Z.pvs 	This subtheory brings the formalization the Chinese Remainder Theorem for
+chinese_remainder_theorem_Z	        This subtheory brings the formalization the Chinese Remainder Theorem for
                                 	integers from the general version of the Chinese Remainder Theorem for 
 					rings. 
 
@@ -80,10 +87,27 @@ cosets_def                      	This subtheory contains definitions about left 
 
 division_rings_extras			This subtheory adds properties about division rings than those ones in
                                         the subtheory division_ring of the theory algebra, such as an
-					alternative characterization of non zero division rings. 
+					alternative characterization of non zero division rings.
 
 
-finite_integral_domain.pvs      	This subtheory contains the definition of finite integral domain and
+euclidean_domain_def 			This subtheory contains a specification of Euclidean Domains. 
+
+euclidean_domain			This subtheory contais formalizations of the ring of integers and
+					any arbitrary field as Euclidean Domains. Also, it brings the
+					formalization of the result stating that a Euclidean Domain is an
+					Unique Factorization Domain. 
+
+euclidean_ring_def			This subtheory contains the definition of Euclidean rings.
+					Two additional definitions were included in this theory, namely
+					euclidean_pair?(R,phi) and euclidean_f_phi?(R,phi,f_phi), 
+					to allow abstraction of adequate Euclidean norms and associated functions
+					fulfilling the properties of Euclidean rings. 
+
+euclidean_ring				This subtheory brings Euclidean rings as principal ideal rings with
+					identity. 
+
+
+finite_integral_domain			This subtheory contains the definition of finite integral domain and
                                         the formalization that a finite integral domain is a field. To do
 					that it was necessary a formalization of a specialized generalization
 					of the pigeonhole principle.
@@ -94,27 +118,35 @@ homomorphisms_def               	This subtheory contains definitions of homomorp
 					general manner for any algebraic structure other than groupoids, such
 					as semigroups, groups, rings, fields, etc. 
 
+
+integral_domain_with_one_def    	This subtheory contains the more usual definition of integral domain
+                                        that is a commutative ring, without zero divisors and that contains an
+					identity one /= zero.
+
+op_finseq_def				This subtheory contains the specification of a recursive function
+					which multiplies the elements of a finite sequence of whose elements have
+					arbitrary type.  
+
+op_finseq				This subtheory includes properties about the operator op_finseq on
+					the structure of monoids. 
+
+product_coset_def               	This subtheory presents the specification of the product of two cosets.
+
+product_finseq_sets_ring        	This subtheory relates intersection and product of ideals. 
+
 prop_primes_extra               	This theory includes auxiliary lemmas for lcm, gcd and finite sequences
                                         of relative prime integers.  Results in this theory are applied to
 					specify CRT for integers from the general theorem CRT for rings. 
 
-integral_domain_with_one_def    	This subtheory contains the more usual definition of integral domain
-                                        that is a commutative ring, without zero divisors and that contains an
-					identity one /= zero. 
-
-product_finseq_sets_ring        	This subtheory relates intersection and product of ideals. 
-
-product_coset_def               	This subtheory presents the specification of the product of two cosets. 
-
-quotient_rings.pvs              	It includes the formalization that the quotient between a ring and an 
+quotient_rings				It includes the formalization that the quotient between a ring and an 
                                 	ideal with suitable defined operations is a ring besides of 
                                 	other properties for cosets of a ring modulo an ideal. 
 
-quotient_rings_with_one.pvs     	Includes the formalization that the quotient between a ring with
+quotient_rings_with_one			Includes the formalization that the quotient between a ring with
                                         identity and an ideal with suitable defined operations is a ring with
                                 	identity.
 
-ring_basic_properties.pvs       	This subtheory contains:
+ring_basic_properties			This subtheory contains:
                                 	1) Definition of multiplication of an element of
                                     	    the ring by an integer and some properties.
                                  	2) Definition of sigma function for elements of
@@ -123,13 +155,13 @@ ring_basic_properties.pvs       	This subtheory contains:
 					   zero divisor elements in a ring.
 				        4) An alternative characterization of subrings.
 
-ring_binomial_theorem.pvs       	This subtheory contains the formalization that the
+ring_binomial_theorem			This subtheory contains the formalization that the
                                 	binomial theorem holds for a ring with one.
 
 ring_center				This subtheory contains formalizations of properties involving
 					center of a ring. 
 
-ring_characteristic_def.pvs     	This subtheory defines the characteristic of a
+ring_characteristic_def			This subtheory defines the characteristic of a
                                         ring and presents some related results.
 
 ring_cosets_lemmas              	This subtheory contains:
@@ -146,15 +178,22 @@ ring_divides_def			This subtheory contains the specification of the concept
 					of division in a ring. 
 
 ring_divides				Formalization of properties involving the relation "divides"
-					defined on a ring with one. 
-                                        
+					defined on a ring with one.
 
-ring_examples.pvs               	This PVS file contains the subtheory zero_ring.pvs, which
-                                	includes the formalization that the structure consisting
-                                	of the element “zero” with the defined operations of
-                                	addition and multiplication is a ring with identity.
+ring_euclidean_algorithm		This PVS file is composed by three subtheories:  
+					1) ring_euclidean_algorithm: this subtheory contains the Euclidean
+					gcd algorithm for Euclidean Domains and its correctness;
+					2) ring_euclidean_algorithm_Z: this subtheory includes the correctness
+					of the Euclidean gcd algorithm for the ring of integers from the general
+					Euclidean gcd algorithm for Euclidean Domains;
+					3) ring_euclidean_algorithm_Zi: this subtheory includes the correctness
+					of the Euclidean gcd algorithm for the ring of Gaussian integers from
+					the general Euclidean gcd algorithm for Euclidean Domains.
 
-ring_general_results.pvs      		This PVS file is composed by two subtheories:  
+ring_gcd_def				This subtheory contains a specification of the definition of greatest
+					common divisor of a non empty subset of a commutative ring.
+
+ring_general_results      		This PVS file is composed by two subtheories:  
 					1) ring_general_results: this subtheory contains 
 					results about characteristic of a ring with one, 
 					characterisation of maximal ideals in commutative rings that
@@ -163,7 +202,7 @@ ring_general_results.pvs      		This PVS file is composed by two subtheories:
 					characterisation of monomorphisms in rings that contain only
 					trivial ideals. 
  
-ring_homomorphisms_def.pvs      	This subtheory contains the definitions of
+ring_homomorphisms_def			This subtheory contains the definitions of
                                 	homomorphism, monomorphism, epimorphism and
                                 	isomorphism between generic algebraic structures
 					with two operations (as happens in rings). The
@@ -172,7 +211,7 @@ ring_homomorphisms_def.pvs      	This subtheory contains the definitions of
                                 	Also, the kernel of an homomorphism for such structures
                                 	is defined. 
 
-ring_homomorphism_lemmas.pvs    	This PVS file is composed by two subtheories:
+ring_homomorphism_lemmas		This PVS file is composed by two subtheories:
 					1) ring_homomorphism_lemmas: this subtheory contains 
 					the formalization that the image and the kernel of a 
 					homomorphism are subrings, the characterization of a 
@@ -183,15 +222,17 @@ ring_homomorphism_lemmas.pvs    	This PVS file is composed by two subtheories:
                                 	the formalization that for a ring S, S and S/{zero}
 					are isomorphic.
 
-ring_ideal_def.pvs              	This subtheory contains the concepts of left and
+ring_ideal_def				This subtheory contains the concepts of left and
                                 	right ideal, as well as the type ideal of a ring.
 
-ring_ideal.pvs                  	This subtheory contains an alternative characterization
+ring_ideal				This subtheory contains an alternative characterization
                                 	of left and right ideals and the formalization that the 
                                 	intersection between a subring and an ideal in a ring is 
-                                	an ideal.  
+                                	an ideal.
 
-ring_isomorphism_theorems.pvs   	This PVS file is composed by two subtheories:
+ring_irreducible_element_def		This subtheory brings the definition of irreducible elements. 
+
+ring_isomorphism_theorems		This PVS file is composed by two subtheories:
                                  	1) ring_1st_isomorphism_theorem: it brings as main result the 
                                     	formalization of the First Isomorphism Theorem for rings.
                                  	2) ring_2nd_3rd_isomorphism_theorems: it contains the 
@@ -207,7 +248,12 @@ ring_nz_closed_aux              	Formalizes properties about rings without zero 
 
 ring_one_generator              	This subtheory contains the definition of the special set 
                                 	one_gen(R)(a) generated by an element a of a ring R. 
-                                	Also, properties about one_gen(R)(a) were formalized. 
+                                	Also, properties about one_gen(R)(a) were formalized.
+
+ring_prime_and_irreducible_element	This PVS file contains the subtheory ring_prime_element,
+					which brings results about prime and irreducible elements. 
+
+ring_prime_element_def			This contains the definition of prime elements.
 
 ring_prime_ideal_def            	This subtheory contains the definition of prime ideals.  
 
@@ -222,6 +268,15 @@ ring_principal_ideal            	It formalizes a characterization of principal i
 ring_principal_ideal_domain_def		This subtheory contains the specification of principal ideal 
 					domains in rings with one.
 
+ring_principal_ideal_domain		This subtheory contains results about principal ideal domains,
+					such as: an element is prime iff it is irreducible.
+
+ring_unique_factorization_domain_def	This subtheory contains the specification of unique factorization
+					domains. 
+
+ring_unique_factorization_domain        This subtheory contains the formalization of principal ideal
+					domains as unique factorization domains. 
+
 ring_unit_def				This theory contains the specification of unit (invertible
                                         elements with respect to *) in a ring and a formalization
 					of the unicity of the inverse for a unit. 
@@ -232,7 +287,7 @@ ring_unit				This theory contains formalization of properties of units in
 ring_with_id_one_generator      	This subtheory brings a characterization of one_gen(R)(a) for 
                                 	commutative rings with identity.  
 
-ring_with_one_basic_properties.pvs 	This subtheory contains the formalization of general 
+ring_with_one_basic_properties		This subtheory contains the formalization of general 
                                     	results about rings with one.
 
 ring_with_one_homomorphism      	This PVS file is composed by two subtheories:
@@ -276,9 +331,13 @@ ring_zn					This theory contains formalization of results about the ring of inte
 					for rings. 
 
 sigma_R_below                   	This subtheory specifies simple algebraic propoerties of finite
-                                        sums of elements of different structures such as rings and ideals. 
+                                        sums of elements of different structures such as rings and ideals.
 
-top_rings.pvs                         	The top file with theory rings importing all files in the theory.
+zero_ring               		This subtheory includes the formalization that the structure
+					consisting of the element “zero” with the defined operations of
+                                	addition and multiplication is a ring with identity.
+
+top_rings                        	The top file with theory rings importing all files in the theory.
 
 
 ------------------------------------------------------------------------------
@@ -299,8 +358,10 @@ b. This theory requires NASA Langley PVS Libraries which are available at:
 ------------------------------------------------------------------------------
 3. Some instructions on the use of PVS
 --------------------------------------
+PVS on VSCode. Documentation and tutorials about the use of PVS integrated with
+VSCode is available at https://marketplace.visualstudio.com/items?itemName=paolomasci.vscode-pvs 
 
-PVS requires emacs.  When you run the command "pvs" it will open emacs in which
+PVS on Emacs.  When you run the command "pvs" it will open emacs in which
 immediately the PVS Welcome windows will be open.
 
 You should open the .pvs file you want to check:  for instance top_rings.pvs.
